@@ -2,22 +2,19 @@ package CopyFilesFromUSB;
 
 import org.apache.commons.io.FileUtils;
 
-import javax.swing.filechooser.FileSystemView;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Aingaran on 02-07-2017.
- * This is a class to copy files from removable drive to a local location.
- */
+
 public class CopyFilesFromUSB {
 
 
@@ -164,19 +161,5 @@ public class CopyFilesFromUSB {
             }
         }
         return false;
-    }
-
-
-    private void listFilesAndFilesSubDirectories(String directoryName, ArrayList<String> files) {
-        File directory = new File(directoryName);
-        //get all the files from a directory
-        File[] fileList = directory.listFiles();
-        for (File file : fileList) {
-            if (file.isFile()) {
-                files.add(file.getAbsolutePath());
-            } else if (file.isDirectory()) {
-                listFilesAndFilesSubDirectories(file.getAbsolutePath(), files);
-            }
-        }
     }
 }
